@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="www/lib/jquery.js"></script>
+    <script src="www/lib/bootstrap.bundle.min.js"></script>
+    <script src="www/produkte.js"></script>
+    <link rel="stylesheet" href="./www/ui/design.css">
+    <link rel="stylesheet" href="./www/ui/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Produkte</title>
+</head>
+<body onload="showProducts()">
+    <div id="alertModal" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 id="alertTitle" class="modal-title">Warnung!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p id="modal-body-alert-text">Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">             
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" data-bs-dismiss="modal" id="modal-confirm" class="btn btn-primary">Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="modal fade" id="modelModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">Neues Produkt</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                <tbody id="produktModal">
+                    <tr>
+                        <td>
+                            <label for="produktname">Name</label><br>
+                            <input type="text" id="produktname">
+                        </td>
+                        <td>
+                            <label for="preis">Preis</label>
+                            <input type="number" step="1" id="preis">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> 
+                            <label for="prozessor">Prozessor</label>
+                            <input type="text" id="prozessor">
+                        </td>
+                        <td> 
+                            <label for="ram">RAM</label>
+                            <input type="number" step="1" id="ram">
+                        </td>
+                        <td> 
+                            <label for="speicher">Speicher</label>
+                            <input type="number" step="1" id="speicher">
+                        </td>
+                    </tr>
+                </tbody>  
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="produktConfirm" data-bs-dismiss="modal" id="produkt-modal-confirm" class="btn btn-primary">Hinzufügen</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">Einkaufswagen</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                    <tbody id="cartbody"></tbody>  
+                    <tfoot>
+                        <tr>
+                            <td>Summe</td>
+                            <td id="sum">0</td>
+                        </tr>
+                    </tfoot>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">PC Shop</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" onclick="goHome()" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a onclick="showCart()" class="nav-link active" aria-current="page" href="#">Einkaufswagen</a>
+              </li>
+            </ul>
+            <span class="navbar-text">
+                PC Shop für Sie
+            </span>
+          </div>
+        </div>
+      </nav>
+
+    <div id="products">
+        
+    </div>
+
+    <div id="detail" style="display: none;">
+        <table class="table table-borderless">
+            <tr>
+                <td id="name"></td>
+            </tr>
+            <tr>
+                <td>  <div id="imgcontainer"></div></td>
+                <td><div id="desc" class="d-flex align-items-stretch" style="background-color: lightblue;"></div></td>
+            </tr>
+            <tr>
+               <td ><div id="preis"></div></td>
+            </tr>
+            <tr>
+                <td class="fw-bold" id="add">Jetzt kaufen!</td>
+            </tr>
+
+        </table>
+    </div>
+
+</body>
+</html>
