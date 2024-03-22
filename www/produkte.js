@@ -57,7 +57,6 @@ function goHome() {
 
 function showDetail(id) {
     $('#products').hide();
-    $('#detail').show();
     
     $.ajax({
         method: 'POST', 
@@ -78,6 +77,7 @@ function showDetail(id) {
               $('#desc').html(el.beschreibung);
               $('#preis').html($('<p class="fw-bold"> Preis:  ' +el.preis + '€ </p>'));
               $('#add').html($('<a onclick="addToCart('+el.id_model+')">').append('Jetzt kaufen! ').append($('<i class="bi bi-cart">')));
+              $('#detail').show();
             });
            // $('#detail').html(table);
         }
